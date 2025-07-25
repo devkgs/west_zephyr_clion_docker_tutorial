@@ -10,11 +10,19 @@ The docker container is managed by CLion. But you need to pull it before.
 docker pull ghcr.io/zephyrproject-rtos/zephyr-build:main
 ```
 
+# STM32CubeProgrammer
+Download the STM32 Cube Programmer CLI from stm website.
+
+[STM download website](https://www.st.com/en/development-tools/stm32cubeprog.html)
+
+Install it where you want. STM32_Programmer_CLI is located here ```STM32CubeProgrammer/bin/STM32_Programmer_CLI```
+
 # West project
 
-....
+This section must be completed.
 
 The project will be mounted in the directory "/workdir" of the docker.
+
 
 # CLion Configuration
 
@@ -22,8 +30,6 @@ The project will be mounted in the directory "/workdir" of the docker.
 West plugin must be installed in CLion.
 
 ![West plugin](images/plugin.png "plugin")
-
-
 
 
 ## Toolchain
@@ -55,4 +61,24 @@ In CLion, edit the run configurations (top right of the screen). Add a new confi
 It will create a west run config, there is nothing else to add here.
 
 # Linux host usb permissions
-    
+
+### 1. Add new udev rules file for stlink
+Create the file:
+
+```sudo nano /etc/udev/rules.d/99-stlink-v3.rules```
+
+Add rules to the file:
+
+```SUBSYSTEM=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="374e", MODE="0666", GROUP="dialout"```
+
+### 2. Add your user to the dialout group
+```sudo usermod -a -G dialout $USER```
+
+### 3. Update the rules
+First disconnect your board from usb.
+```
+sudo udevadm control --reload-rules
+sudo udevadm trigger
+```
+
+
