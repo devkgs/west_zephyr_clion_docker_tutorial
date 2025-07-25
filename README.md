@@ -81,4 +81,64 @@ sudo udevadm control --reload-rules
 sudo udevadm trigger
 ```
 
+# Build and flash
+## Build
+Click on the hammer, 
 
+
+## Flash the device 
+Click on the play button.
+
+This is the standard log when the flash succeeds:
+```
+BL Version  : 0x92
+Debug in Low Power mode enabled
+
+
+Mass erase ... 
+
+Mass erase successfully achieved
+      -------------------------------------------------------------------
+                        STM32CubeProgrammer v2.9.0                  
+      -------------------------------------------------------------------
+
+ST-LINK SN  : 001900054D46501120383832
+ST-LINK FW  : V3J10M3
+Board       : B-U585I-IOT02A
+Voltage     : 3.29V
+SWD freq    : 24000 KHz
+Connect mode: Under Reset
+Reset mode  : Hardware reset
+Device ID   : 0x482
+Revision ID : Rev X
+Device name : STM32U575/STM32U585
+Flash size  : 2 MBytes
+Device type : MCU
+Device CPU  : Cortex-M33
+BL Version  : 0x92
+Debug in Low Power mode enabled
+
+
+
+Memory Programming ...
+Opening and parsing file: zephyr.hex
+  File          : zephyr.hex
+  Size          : 46788 Bytes
+  Address       : 0x08000000 
+
+
+Erasing memory corresponding to segment 0:
+Erasing internal memory sectors [0 5]
+Download in Progress:
+[==================================================] 100% 
+
+File download complete
+Time elapsed during download operation: 00:00:00.500
+
+RUNNING Program ... 
+  Address:      : 0x8000000
+Application is running, Please Hold on...
+Start operation achieved successfully
+
+Process finished with exit code 0
+```
