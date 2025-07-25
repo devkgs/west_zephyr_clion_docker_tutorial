@@ -2,6 +2,8 @@
 This tutorial explains how to configure CLion to use a dockerized zephyr and how to configure the toolchain to flash a stm32 device.
 Ubuntu host.
 
+### Useful links
+https://www.jetbrains.com/help/clion/zephyr.html
 
 # Zephyr docker image
 The docker container is managed by CLion. But you need to pull it before.
@@ -17,7 +19,7 @@ Download the STM32 Cube Programmer CLI from stm website.
 
 Install it where you want. STM32_Programmer_CLI is located here ```STM32CubeProgrammer/bin/STM32_Programmer_CLI```
 
-# West project
+# Zephyr project
 
 TODO This section must be completed.
 
@@ -44,10 +46,12 @@ In settings Build, Execution, Deployment > Toolchains. Add a docker toolchain.
 ### Configure the two volumes to bind from the host to the docker
 
 - The project from your host project directory to /workdir
-- The programmer path from your host programmer directory to *  
-```/home/user/STMicroelectronics/STM32Cube/STM32CubeProgrammer```
+- The programmer path from your host programmer directory to *  ```/home/user/STMicroelectronics/STM32Cube/STM32CubeProgrammer```
 
 *I didn't find a way to set another directory than, ```/home/user/STMicroelectronics/STM32Cube/STM32CubeProgrammer```. 
+
+### Configure west target
+![West config](images/west.png "West config")
 
 ### Configure the run options
 ```
