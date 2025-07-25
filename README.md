@@ -19,7 +19,7 @@ Install it where you want. STM32_Programmer_CLI is located here ```STM32CubeProg
 
 # West project
 
-This section must be completed.
+TODO This section must be completed.
 
 The project will be mounted in the directory "/workdir" of the docker.
 
@@ -44,12 +44,15 @@ In settings Build, Execution, Deployment > Toolchains. Add a docker toolchain.
 ### Configure the two volumes to bind from the host to the docker
 
 - The project from your host project directory to /workdir
-- The programmer path from your host programmer directory to *  ```/home/user/STMicroelectronics/STM32Cube/STM32CubeProgrammer```
+- The programmer path from your host programmer directory to *  
+```/home/user/STMicroelectronics/STM32Cube/STM32CubeProgrammer```
 
 *I didn't find a way to set another directory than, ```/home/user/STMicroelectronics/STM32Cube/STM32CubeProgrammer```. 
 
 ### Configure the run options
->--entrypoint= --rm --device=/dev/bus/usb:/dev/bus/usb
+```
+--entrypoint= --rm --device=/dev/bus/usb:/dev/bus/usb
+```
 
 The device option is required to allow the docker to access the usb port of the host.
 
@@ -59,6 +62,10 @@ In CLion, edit the run configurations (top right of the screen). Add a new confi
 ![Run config](images/run-config.png "Run configuration")
 
 It will create a west run config, there is nothing else to add here.
+
+# CLion Project
+
+TODO
 
 # Linux host usb permissions
 
