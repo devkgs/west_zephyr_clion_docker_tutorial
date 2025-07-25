@@ -20,11 +20,24 @@ Download the STM32 Cube Programmer CLI from stm website.
 Install it where you want. STM32_Programmer_CLI is located here ```STM32CubeProgrammer/bin/STM32_Programmer_CLI```
 
 # Zephyr project
+### 1. Run manually the zephyr docker
+```
+docker run -ti -v <your host project directory>:/workdir  ghcr.io/zephyrproject-rtos/zephyr-build:latest
+```
 
-TODO This section must be completed.
+for example:
 
-The project will be mounted in the directory "/workdir" of the docker.
+```docker run -ti -v <your host project directory>$HOME/dev/zephyr_project:/workdir  ghcr.io/zephyrproject-rtos/zephyr-build:latest```
 
+The working directory is /workdir in the docker, it is mapped on the host directory for data persistence.
+
+### 2. Create zephyr environment
+In the docker container. Run the following commands, it will download arround 7 GB of zephyr sources.
+
+```
+west init
+west update
+```
 
 # CLion Configuration
 
@@ -50,8 +63,6 @@ In settings Build, Execution, Deployment > Toolchains. Add a docker toolchain.
 
 *I didn't find a way to set another directory than, ```/home/user/STMicroelectronics/STM32Cube/STM32CubeProgrammer```. 
 
-### Configure west target
-![West config](images/west.png "West config")
 
 ### Configure the run options
 ```
@@ -59,6 +70,10 @@ In settings Build, Execution, Deployment > Toolchains. Add a docker toolchain.
 ```
 
 The device option is required to allow the docker to access the usb port of the host.
+
+
+### Configure west target
+![West config](images/west.png "West config")
 
 ### Add a run/debug configuration
 In CLion, edit the run configurations (top right of the screen). Add a new configuration with +, select Zephyr-west is the list.
@@ -68,8 +83,8 @@ In CLion, edit the run configurations (top right of the screen). Add a new confi
 It will create a west run config, there is nothing else to add here.
 
 # CLion Project
-
-TODO
+Open the project located in your host. 
+TODO continue this section...
 
 # Linux host usb permissions
 
