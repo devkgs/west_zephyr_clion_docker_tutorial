@@ -2,11 +2,19 @@
 This tutorial explains how to configure CLion to use a dockerized zephyr and how to configure the toolchain to flash a stm32 device.
 Ubuntu host.
 
+- Ubuntu 25.04
+- Docker version 27.5.1, build 27.5.1-0ubuntu3
+- West version: v1.2.0
+
 ### Useful links
 https://www.jetbrains.com/help/clion/zephyr.html
 
+https://docs.zephyrproject.org/latest/develop/tools/clion.html
+
+https://github.com/zephyrproject-rtos/docker-image
+
 # Zephyr docker image
-The docker container is managed by CLion. But you need to pull it before.
+The docker container is managed by CLion. But you need to pull it first.
 
 ```
 docker pull ghcr.io/zephyrproject-rtos/zephyr-build:main
